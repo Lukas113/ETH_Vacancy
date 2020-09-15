@@ -14,7 +14,7 @@ The data analysis begins with the checking of the rotation sensor values in orde
 
 The frequency and position analysis also examines behavioural differences of the mock-up residents with regard to living situation, age and gender.
 
-
+Due to the right of first publication of the ETH-Zurich neither datasets nor results are visible, only the source code.
 
 
 
