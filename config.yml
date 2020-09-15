@@ -1,0 +1,49 @@
+general_info:
+    Projekt_Ende: '2020-06-05 23:59:59.000000'
+
+turn_sensors:
+    Minimum: 0
+    Maximum_LampeAussenwand: 156.77
+    Maximum_Drehschrank: 186.46
+    Maximum_Drehwand: 237.58
+    Maximum_LampeDrehwand: 320.41
+    Toleranz: 10                    #In Grad
+    Min_Drehung: 2                  #In Grad
+    Min_Drehgeschwindigkeit: 500    #In Millisekunden pro Grad
+    binwidth: 5                     #In Grad bei Positionsanalyse
+    Simultane_Bewegung: 60          #In Sekunden
+
+
+color:
+    # Dunkle farbschattierungen zuerst
+    Drehwand: #blautöne
+        - '#24CBFA'
+        - '#49D8FA'
+        - '#70E4FA'
+        - '#8DE8FA'
+        - '#A7EDFA'
+    Drehschrank: #grüntöne
+        - '#15E08F'
+        - '#46E0AB'
+        - '#63E0B3'
+        - '#7BE0B7'
+        - '#94E0C7'
+    LampeDrehwand: #violetttöne
+        - '#9F4EE6'
+        - '#B973FA'
+        - '#B98AFA'
+        - '#C296FF'
+        - '#BBA9E9'
+    LampeAussenwand: #orangetöne
+        - '#E6A927'
+        - '#E6B856'
+        - '#E6C06E'
+        - '#E6CA92'
+        - '#E9DAB9'
+    Neutral: #https://color.adobe.com/de/Kopie-von-Copy-of-Neutral-Blue-color-theme-10855146
+        - '#3E606F'
+        - '#91AA9D'
+        - '#D1DBBD'
+        - '#193441'
+        - '#FCFFF5'
+     

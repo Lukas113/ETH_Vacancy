@@ -1,0 +1,214 @@
+# Setup und Installation
+**Anleitung zum Aufsetzen der Softwareumgebung zum Ausführen der Analyse Jupyter-Notebooks für das Projekt
+"Vacancy No-Vacancy"**
+----
+**Inhaltsverzeichnis:**
+- Installation
+    - Files von GitHub herunterladen
+    - Einfügen von vertraulichen Files
+    - Installation PostgreSQL-Datenbank
+    - Installation von Anaconda
+- Betrieb
+    - Starten und Ausführen des Notebooks
+    - CSV's anpassen
+        - Eintragen von Perioden mit Sensorfehlern
+        - Nachtragen von Sensorkorrekturen
+        - Eintragen von Änderungen in den Besetzungswochen
+        - Nachtragen von Besuchen, Besichtigungen etc.
+    - Anpassungen von Konfigurationen
+        - Projektende
+        - Min/Max Werte
+        - Farbgebung
+- Kontakt
+---
+## Installation
+Um die Notebooks für die Analyse auszuführen, bzw. zu aktualisieren müssen auf dem Gerät folgende
+Dateien und Software vorhanden sein. Sollte es bei der Installation von Programmen zu Problemen kommen,
+kontaktieren Sie ihren IT-Support oder einer der Autoren per E-Mail.
+
+### Files von Github herunterladen
+Die benötigten Dateien sind als Zip-File von der zum Projekt gehörenden [GitHub-Page](https://github.com/roman-studer/fhnw-ds-fs2020-vacancy_no_vacancy) herunterzuladen.
+
+1. Projekt als Zip herunterladen. Klicken Sie dafür auf der [Website](https://github.com/roman-studer/fhnw-ds-fs2020-vacancy_no_vacancy) auf den grünen
+Butten mit der Aufschrift _"Clone or Download"_ und anschliessend auf _"Download ZIP"_.
+2. Entpacken sie das
+heruntergeladene Zip-Paket an einen von Ihnen gewünschten Standort. Empfohlen wird der Ordner "Dokumente" auf Windows oder Mac.
+
+### Einfügen von vertraulichen Files
+Informationen wie die Zugangsdaten für die Datenbank oder den Download der Sensordaten sind vertraulich und werden deshalb
+nicht öffentlich auf der GitHub-Page des Projektes angefügt.
+
+1. Vergewissern Sie sich dass sie die folgenden Files besitzen:
+    1. db_config.yml
+    2. Malfunction.csv
+    3. not_occupied.csv
+    4. inhabitants.csv
+    5. corr.csv
+
+    Sollten Sie nicht im Besitz der aufgelisteten Dokumente sein, kontaktieren Sie die für die Analyse 
+    verantwortliche Person.
+
+2. Fügen Sie die Dokumente welche den Suffix .csv besitzen im Ordner `Vacancy-master/database/` ein.
+3. Fügen Sie das Dokument db_config.yml im Ordner `Vacanvy-master/` ein.
+
+## Installation von PostgreSQL-Datenbank
+Die Log-Daten müssen für die Analyse in einer Datenbank gespeichert sind. Installieren sie PostgreSQL
+mit den folgenden Schritten:
+
+1. Download der Software: Laden Sie den für Ihr System (Mac/Windows) passenden Installer [hier ](https://www.enterprisedb.com/downloads/postgres-postgresql-downloads) herunter.
+2. Führen Sie den Installer nach dem Download aus.
+3. Folgen sie den Anweisungen des Installers: [Mac](https://www.enterprisedb.com/postgres-tutorials/installation-postgresql-mac-os), [Windows](https://www.enterprisedb.com/edb-docs/d/postgresql/reference/manual/12.1/install-windows.html) <br>
+Beim durchklicken des Installers können Sie die Voreinstellungen grundsätzlich belassen.
+4. Vergewissern Sie sich, dass Sie pgAdmin 4 angewählt haben.
+5. Wenn Sie aufgefordert werden ein Passwort für den Superuser einzugeben, geben Sie entweder selbstständig eines ein (notieren Sie sich dieses)
+oder übernehmen Sie, dass Passwort aus dem `db_config.yml`-File welches Sie zuvor in den Ordner `Vacancy-master/` deponiert haben. Das Passwort ist unter
+"sql:" bei der Zeile "pw:" ersichtlich.
+Sollten sie ein eigenes Passwort setzen, ersetzen Sie das Passwort im `db_config.yml` - File.
+6. Vergewissern Sie sich, dass sie die packages "psqlODBC" und "PostgreSQL" angewählt haben.
+7. Sollte sich der im Installer verwendete Port von dem im File `db_config.yml` unterscheiden, ändern Sie
+entweder den Port im Installer oder im File `db_config.yml`ab.
+7. Installieren Sie die Software.
+
+### Datenbank aufsetzen
+1. Starten Sie das nun installierte Programm 'pgAdmin 4'. Ein Tab in ihrem Browser sollte sich öffnen.
+2. Loggen Sie sich mit dem zuvor definierten Passwort für den Superuser ein.
+3. Im Menu links, rechtsklich auf
+
+## Installation von Anaconda
+Um die Notebooks mit der Analyse durchlaufen zu lassen benötigen Sie die Software "Anaconda", welche es Ihnen ermöglicht Python-Code
+auszuführen.
+
+1. Download der Software:  Laden Sie den für Ihr System (Mac/Windows) passenden Installer [hier ](https://www.anaconda.com/products/individual) herunter.
+2. Folgen Sie den Anweisungen des Installers.
+3. Starten sie das Programm "Anaconda Promt"
+4. Navigieren Sie mit dem Befehl `cd Folder/` zum Ordner indem die Dateien von `Vacancy-master` existieren. Falls Sie die
+Dateien im Ordner Dokumente abgelegt haben benutzen sie `cd Documents/Vacanvy-master`
+5. Geben sie den Befehl `conda install --yes --file requirements.txt` ein. Die nötigen Dependencies werden dadurch installiert.
+(es ist möglich das sie Installation mit der Tasteneingabe "y" (für Yes) bestätigen müssen.)
+
+# Betrieb
+## Starten und Ausführen des Notebooks
+Dieser Abschnitt ermöglicht es die Analyse der Sensordaten für das "vacancy no-vacancy" Projektes einzusehen.
+
+1. Starten Sie die Applikation "Jupyter Notebook" (wurde mit Anaconda installiert). Ein Tab im Browser öffnet sich.
+2. Navigieren Sie zum Ordner indem Sie die heruntergeladenen Projektfiles abgelegt haben (z.B Documents)
+3. Im Vacanvy-master/data-analysis, klicken sie doppelt auf das File `analysis.ipynb`. Das Notebook mit der Analyse öffnet sich dadurch.
+4. Im Menü klicken sie auf den 'Doppelpfeil' um die Analyse auszuführen.
+5. Betrachten Sie den Inhalt der Analyse
+6. Schliessen Sie das Dokument indem Sie im Menüpunkt 'File' auf 'Close and Halt' klicken. Der Tab wird dadurch geschlossen.
+7. Beenden Sie das Programm indem Sie oben rechts auf 'Quit' klicken.
+
+Information: Sobald Änderungen am Source-Code oder am Konfigurationsfile vorgenommen wurden, kehren Sie zum Schritt 4 zurück.
+Eine komplette Ausführung des Notebooks nimmt etwas Zeit in Anspruch, da die Analysen live auf den aktuellsten Daten gemacht werden.
+
+
+## CSV's anpassen
+Um zusätzliche Informationen zu Sensorkorrekturen, Unterbrüche durch Besichtigungen etc. in die Analyse mit einfliessen zu lassen,
+müssen diese Manuell nachgetragen werden. Dies geschieht über dedizierte CSV's. Diese Dateien sind im Ordner `Vacanvy-master/database` zu finden.
+Das einfliessen dieser Informationen erhöht die Genauigkeit der Analyse.
+
+### Eintragen von Perioden mit Sensorfehlern
+Sollte ein Sensor für eine bestimmte Periode fehlerhafte Daten liefern, können diese Perioden manuell eingetragen werden.
+Dies verhindert dass unsaubere Daten in die Analyse mit einfliessen.
+
+1. Öffnen Sie die CSV-Datei `Malfunction.csv` im Ordner `Vacancy-master/database`
+2. Tragen Sie in einer neuen Zeile die folgenden Daten ein: sensorname, start, end, reason, usable
+- sensorname: Der Name des defekten Sensores, schreibweise muss dem Sensornamen der Sensorliste auf der Website [http://ethz-mock-up.private-cloud.ch/prod/sensordata/](http://ethz-mock-up.private-cloud.ch/prod/sensordata/) entsprechen.
+- start: Startzeitpunkt des Fehlverhalten
+- end: endzeitpunkt des Fehlverhalten
+- reason: Grund des Fehlverhaltens (dient nur der visuellen Auswertung und kann frei gewählt werden)
+- usable: 0 falls keine Daten mehr verwendet werden können, 1 falls die Bewegungen des Sensors in die Analyse mit einfliessen dürfen.
+3. Prüfen Sie ob die neue Zeile genau dem Format der ersten paar Zeilen entspricht (Achten Sie besonders darauf keine Leerzeichen einzufügen)
+4. Speichern Sie die Datei ab. Gehen Sie nun zu Schritt 4 im Abschnitt "Starten und Ausführen des Notebooks".
+
+
+### Nachtragen von Sensorkorrekturen
+Sollte es zu Verschiebungen in den Sensordaten kommen, welche die Sensoren dazu bringen Werte anzunehmen die ausserhalb der
+definierten Reichweite liegen, können diese Daten für eine Zeitperiode nach unten oder oben korriegert werden. (Hierbei handelt es sich
+nur um Drehsensoren.)
+1. Öffnen Sie die CSV-Datei `corr.csv` im Ordner `Vacancy-master/database`.
+2. Tragen Sie in einer neuen Zeile die folgenden Daten ein: sensorname, start, end ,shift.
+- sensorname: Dabei handelt es sich um den zu korrigierenden Sensor. Zur Auswahl steht: Drehwand, Drehschrank, LampeAussenwand, LampeDrehwand.
+- start: Der Zeitpunkt ab welchem die Daten korrigiert werden sollen
+- end: Der Zeitpunkt ab welchem die Daten _nicht_ mehr korrigiert werden sollen.
+- schift: Um wie viel Grad der Sensor korrigiert werden soll. (Negativ korrigiert nach unten)
+3. Prüfen Sie ob die neue Zeile genau dem Format der ersten paar Zeilen entspricht (Achten Sie besonders darauf keine Leerzeichen einzufügen)
+4. Speichern Sie die Datei ab. Gehen Sie nun zu Schritt 4 im Abschnitt "Starten und Ausführen des Notebooks".
+
+### Eintragen von Änderungen in den Besetzungswochen
+Sollte es zu Änderungen in den Besetzungswochen des Projektes kommen, zum Beispiel wenn eine Person ausfällt oder eine andere Person
+mit anderen Eigenschaften (Geschlecht, Alter etc.) antritt, muss das CSV 'inhabitants' abgeändert werden.
+
+1. Öffnen Sie die CSV-Datei `inhabitants.csv` im Ordner `Vacancy-master/database`.
+2. Tragen Sie in einer neuen Zeile die folgenden Daten ein: occupation_period ,start ,end ,person ,age ,sex
+,profession, employment_level, origin_living_situation, origin_housing_space, attendance
+- occupation_period: Nummer welche die Besetzungswoche identifizierbar macht. Verwenden Sie die zuletzt verwendete Zahl plus 1.
+- start: Startdatum
+- end: Enddatum
+- person: Nummerierung der Person aus dem von der ETH vorgegenen Excel-File.
+- age: Altersklasse: Sie haben die folgenden Auswahlmöglichkeiten: 18-30, 30-45, 45-60, 60-75
+- sex: Geschlecht f für Female und m für Male
+- profession: Beruf
+- employment_level: A (studierend), B (berufstätig), C (Teilzeit-berufstätig), D (nicht-berufstätig)
+
+- origin_living_situation: Apartment, wenn die Person in einer Wohnung lebt oder Haus, wenn die Person in einem Haus lebt.
+- origin_housing_space: Anzhal Zimmer in der eigenen Wohnung, eigenes Haus
+- attendance: Anwesend: 1, nicht anwesend: 0
+
+**Paare**: Wenn mehr als eine Person in derselben Woche im Mock-Up ist muss pro Person eine Zeile verwendet werden.
+Die "occupation_period" bleibt dabei die selbe.
+
+**Fehlende Informationen**: Sollten Informationen zu gewissen Angaben fehlen wie zum Beispiel das Alter der Person, geben sie diese
+als "empty"-Space an. Dabei muss folgende Notation eingehalten werden: `occupation_period,**fehlende Info**,sex` wird zu `occupation_period,,sex`.
+Der Bereich wo die Information wird also einfach leer gelassen (auch kein Leerschlag), so sind dann zwei Kommas nebeneinander.
+
+3. Prüfen Sie ob die neue Zeile genau dem Format der ersten paar Zeilen entspricht (Achten Sie besonders darauf keine Leerzeichen einzufügen)
+4. Speichern Sie die Datei ab. Gehen Sie nun zu Schritt 4 im Abschnitt "Starten und Ausführen des Notebooks".
+
+### Nachtragen von Besuchen, Besichtigungen etc.
+Besichtigungen oder sonstige Unterbrüche während des Projektes müssen nachgetragen werden um die Analyse nicht zu verfälschen.
+
+1. Öffnen Sie die CSV-Datei `not_occupied.csv` im Ordner `Vacancy-master/database`.
+2. Tragen Sie in einer neuen Zeile die folgenden Daten ein: empty_from, empty_to, reason
+- empty_from: Zeitpunkt ab wann der Unterbruch auftrat
+- empty_to: Zeitpunkt ab wann der Unterbruch beendet wurde
+- reason: Grund des Unterbruches
+
+3. Prüfen Sie ob die neue Zeile genau dem Format der ersten paar Zeilen entspricht (Achten Sie besonders darauf keine Leerzeichen einzufügen)
+4. Speichern Sie die Datei ab. Gehen Sie nun zu Schritt 4 im Abschnitt "Starten und Ausführen des Notebooks".
+
+
+## Anpassungen von Konfigurationen
+Einstellungen wie Farbgebung im Bericht oder Min/Max-Werte, sowie Datum und Uhrzeit des Projektendes können nachgetragen werden.
+**Achtung:** erreicht das Projekt das Datum des 'Projektendes', werden keine neuen Sensordaten mehr heruntergeladen.
+
+###Projektende
+Anpassung des Datums für das Projektende:
+
+1. Öffnen Sie das File `config.yml` im Ordner `Vacanvy-master`
+2. Passen Sie das Datum im Bereich "general_info" an. Benutzen Sie dazu das Format Projekt_Ende: 'YYYY-MM-DD HH:MM:SS.000000'
+3. Speichern Sie das Dokument
+4. Gehen Sie nun zu Schritt 4 im Abschnitt "Starten und Ausführen des Notebooks".
+
+### Min/Max Werte
+Anpassung des Minimal- und Maximalwerte der Drehsensoren:
+
+1. Öffnen Sie das File `config.yml` im Ordner `Vacanvy-master`
+2. Passen Sie  Minimal- und Maximalwerte im Bereich "turn_sensors" an. Geben Sie die Zahl ohne Anführungszeichen an.
+3. Speichern Sie das Dokument
+4. Gehen Sie nun zu Schritt 4 im Abschnitt "Starten und Ausführen des Notebooks".
+
+### Farbgebung
+Anpassung der Farbgebung für die Grafiken in der Analyse:
+
+1. Öffnen Sie das File `config.yml` im Ordner `Vacanvy-master`
+2. Passen Sie Farben im Bereich "color" an. Die Farben sind als HEX angegeben. Benutzen Sie das Format '#XYZ012'
+3. Speichern Sie das Dokument
+4. Gehen Sie nun zu Schritt 4 im Abschnitt "Starten und Ausführen des Notebooks".
+
+Drehsensoren haben je eine Grundfarbe in 5 Stärken (von Dunkel zu Hell). Die Liste mit dem Namen "Neutral" enthält Farben die
+verwendet werden, wenn es sich nicht um Drehsensoren handelt.
+
+## Kontakt
+Bei Problemen kontaktieren Sie zuerst Ihren IT-Support.
+Ansonst kontaktieren Sie das Institut für Data Science der FHNW in Windisch, verlangen Sie Rocco Custer. Sie werden dann an die Verantwortliche Person weitergeleitet.
